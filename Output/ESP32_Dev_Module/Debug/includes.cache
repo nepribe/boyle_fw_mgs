@@ -1,0 +1,87 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\cores\\esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\variants\\esp32"
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\ifx_multigas_sensor.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\libraries\\Wire\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\ifx_multigas_sensor.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\Alphasense.cpp",
+    "Include": "SPI.h",
+    "Includepath": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\libraries\\SPI\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\Alphasense.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\CommHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\SHTSensor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\Sensor.cpp",
+    "Include": "Dps368.h",
+    "Includepath": "C:\\Users\\PrietoBejar\\Documents\\Arduino\\Libraries\\DPS368-Library-Arduino-dps368\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\Sensor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\Output\\ESP32_Dev_Module\\Debug\\sketch\\boyle.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\libraries\\Wire\\src\\Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.4\\libraries\\SPI\\src\\SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Documents\\Arduino\\Libraries\\DPS368-Library-Arduino-dps368\\src\\Dps310.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Documents\\Arduino\\Libraries\\DPS368-Library-Arduino-dps368\\src\\Dps368.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Documents\\Arduino\\Libraries\\DPS368-Library-Arduino-dps368\\src\\Dps422.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\PrietoBejar\\Documents\\Arduino\\Libraries\\DPS368-Library-Arduino-dps368\\src\\DpsClass.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "additionalFiles": "..,..,..,..,..,..,..,..,..,..",
+  "builtInLibrariesFolders": "",
+  "builtInToolsFolders": "C:\\Users\\PrietoBejar\\AppData\\Local/Arduino15/packages",
+  "customBuildProperties": "runtime.tools.esptool_py.path=C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esptool_py\\2.6.1,runtime.tools.xtensa-esp32-elf-gcc.path=C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\1.22.0-80-g6c4433a-5.2.0,runtime.tools.ctags.path=C:\\Users\\PrietoBejar\\AppData\\Local\\VisualGDB\\Arduino\\tools-builder\\ctags\\5.8-arduino11",
+  "fqbn": "esp32:esp32:esp32:PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none",
+  "hardwareFolders": "C:\\Users\\PrietoBejar\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "C:\\Users\\PrietoBejar\\Documents\\Arduino\\Libraries",
+  "runtime.ide.version": "10600",
+  "sketchLocation": "C:\\Users\\PrietoBejar\\Repositories\\github\\boyle_fw_mgs\\sketches\\ifx_multigas_sensor.ino"
+}
