@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Board Documentation &mdash; x96_board 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'0.1',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Firmware Documentation" href="firmware.html" />
+    <link rel="prev" title="Overview Project" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> x96_board
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview Project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Board Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#x96-board-roadmap">x96_board Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#x96-board-motherboard">x96_board Motherboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#microcontroller">MicroController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supply-power">Supply Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-multiplexer">Signal Multiplexer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#daisy-chain-block">Daisy-Chain Block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeater-block">Repeater Block</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#x96-board-daugtherboard">x96_board Daugtherboard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html">Firmware Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver.html">Driver Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">x96_board</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Board Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/board.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="board-documentation">
+<span id="board"></span><h1>Board Documentation<a class="headerlink" href="#board-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The board used in this project is designed to support:</p>
+<ul class="simple">
+<li>Microcontroller</li>
+<li>Power Supply Circuit</li>
+<li>96 MGSs</li>
+<li>3 SHT25 sensors</li>
+<li>3 DPS310 sensors</li>
+</ul>
+<p>The design of the board has two parts: The first part, so-called the motherboard, contains the microcontroller, power supply and the components to communicate with the DUTs. The second part, called the daugtherboard, contains the MGSs and the reference sensors.</p>
+<div class="section" id="x96-board-roadmap">
+<h2>x96_board Roadmap<a class="headerlink" href="#x96-board-roadmap" title="Permalink to this headline">¶</a></h2>
+<p>The design of the board suffered changes until the last version. <a class="reference internal" href="#board-roadmap"><span class="std std-numref">Fig. 1</span></a> shows the roadmap of these changes.</p>
+<div class="figure align-center" id="id1">
+<span id="board-roadmap"></span><a class="reference internal image-reference" href="_images/FW_x96-x96_board_roadmap.svg"><img alt="_images/FW_x96-x96_board_roadmap.svg" src="_images/FW_x96-x96_board_roadmap.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Roadmap board design [<strong>updated: [13/07/21</strong>]</span></p>
+</div>
+<p>The highlights of each change in the design of the board is provided by <a class="reference internal" href="#board-roadmap-details"><span class="std std-numref">Fig. 2</span></a></p>
+<div class="figure align-center" id="id2">
+<span id="board-roadmap-details"></span><a class="reference internal image-reference" href="_images/FW_x96-x96_board_roadmap_details.svg"><img alt="_images/FW_x96-x96_board_roadmap_details.svg" src="_images/FW_x96-x96_board_roadmap_details.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Board design sum-up</span></p>
+</div>
+</div>
+<div class="section" id="x96-board-motherboard">
+<h2>x96_board Motherboard<a class="headerlink" href="#x96-board-motherboard" title="Permalink to this headline">¶</a></h2>
+<p>The motherboard contains the microcontroller, power supply and the components to comunicate with the DUTs. <a class="reference internal" href="#motherboard-blockdiagram"><span class="std std-numref">Fig. 3</span></a> illustrates the block diagram of the motherboard, which has three main blocks. The micro-controller, the power supply block and the signal multiplexer module.</p>
+<div class="figure align-center" id="id3">
+<span id="motherboard-blockdiagram"></span><a class="reference internal image-reference" href="_images/FW_x96-x96_motherboard_blockdiagram.svg"><img alt="_images/FW_x96-x96_motherboard_blockdiagram.svg" src="_images/FW_x96-x96_motherboard_blockdiagram.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Block diagram of the motherboard</span></p>
+</div>
+<div class="section" id="microcontroller">
+<h3>MicroController<a class="headerlink" href="#microcontroller" title="Permalink to this headline">¶</a></h3>
+<p>During the <em>Build 0.0</em> the microcontroller selected to be responsable to communicate with the DUTs, the power supply and be able to support an interface communication with a computer was an <strong>Arduino Mega</strong>. However, from <em>Version 0.0</em> and later it was changed to <strong>PSoC 5</strong>.</p>
+</div>
+<div class="section" id="supply-power">
+<h3>Supply Power<a class="headerlink" href="#supply-power" title="Permalink to this headline">¶</a></h3>
+<p>The block of power supply uses the 5V from <strong>PSoC 5</strong> to generate VDD required to supply other components.</p>
+</div>
+<div class="section" id="signal-multiplexer">
+<h3>Signal Multiplexer<a class="headerlink" href="#signal-multiplexer" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="../../source/_documents/i2c_protocol.pdf">I2C protocol</a> is the interface communication between the microController to the MGSs and the reference sensors. However, due to all the 96 MGSs have the same address the implementation of the standard two wires (SDA, SCL line) bus is not possible. Additionally. the MGSs have a output called INT, which must be read from each MGS. In order to achieve ‘parallelism’ to communicate with all the DUTs (could be just one), the implementation of multiplexer block was necessary. This block uses a daisy-chain configuration for multiplexer I2C SDA signals and the INT signal, the SCL signal comes from one single PSoC pin and it is replicate 96 times for each MGS. This block can multiplex up to 96 I2C signal lines throught 6 signal lines that comes from PSoC pins (SDA_MP0,1,2,…,5) and one single SCL signal. Each signal line can access to 16 SDA signal lines (total of 96 I2C SDA signal lines) and 16 INT signals. <a class="reference internal" href="#multiplexer-blockdiagram"><span class="std std-numref">Fig. 4</span></a> shows the overview block diagram of the signal multiplexer module.</p>
+<div class="figure align-center" id="id4">
+<span id="multiplexer-blockdiagram"></span><a class="reference internal image-reference" href="_images/FW_x96-x96_multiplexer_blockdiagram.svg"><img alt="_images/FW_x96-x96_multiplexer_blockdiagram.svg" src="_images/FW_x96-x96_multiplexer_blockdiagram.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Block diagram of the multiplexer</span></p>
+</div>
+<div class="section" id="daisy-chain-block">
+<h4>Daisy-Chain Block<a class="headerlink" href="#daisy-chain-block" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference internal" href="#daisy-chain-diagram"><span class="std std-numref">Fig. 5</span></a> shows the connections of the different components that the daisy chain block has.</p>
+<div class="figure align-center" id="id5">
+<span id="daisy-chain-diagram"></span><a class="reference internal image-reference" href="_images/FW_x96-x96_chaisy_chain_diagram.svg"><img alt="_images/FW_x96-x96_chaisy_chain_diagram.svg" src="_images/FW_x96-x96_chaisy_chain_diagram.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Diagram of the Daisy-Chain block</span></p>
+</div>
+</div>
+<div class="section" id="repeater-block">
+<h4>Repeater Block<a class="headerlink" href="#repeater-block" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-center" id="id6">
+<span id="repeater-diagram"></span><a class="reference internal image-reference" href="_images/FW_x96-x96_repeater_diagram.svg"><img alt="_images/FW_x96-x96_repeater_diagram.svg" src="_images/FW_x96-x96_repeater_diagram.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Diagram of the Repeater block</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="x96-board-daugtherboard">
+<h2>x96_board Daugtherboard<a class="headerlink" href="#x96-board-daugtherboard" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="firmware.html" class="btn btn-neutral float-right" title="Firmware Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Niels Prieto Bejar.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

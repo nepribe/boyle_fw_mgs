@@ -220,7 +220,8 @@ void Boyle::asic_poll(uint8_t *sensors_data)
         // TODO: unhandled case
       }
       
-    } else {
+    } 
+    else {
        // heater is turned off
        i2c_write_reg_data(i2c_adr,0x18,0x04); 
        
@@ -283,7 +284,8 @@ void Boyle::asic_poll(uint8_t *sensors_data)
             received_string[i++]  = Wire.read();    // receive a byte as character
           }
 
-        } else {
+        }
+        else {
           for(i=0;i<20;i++)
           received_string[i] = 0xFF;
         }
@@ -318,81 +320,7 @@ void Boyle::asic_poll(uint8_t *sensors_data)
   }
    
 }
-void Boyle::adc_st()
-{
-  char c[] ="";
-  int t;
-  long time_out = 0;
-  
-  // start "fake-selftimed-mode"
-  // timing will be done by Arduino waits
-  // it has to be set with the "SPS" command -> samples per second
-  // interrupt pin will be used to check for "measurement finished"
 
-  // enable interrupt
-  i2c_write_reg_data(i2c_adr,0x1A,0x02);
-
-  // clear old interrupt
-  i2c_write_reg_data(i2c_adr,0x1C,0x02);
-
-  stop=0;
- 
-  while(1)
-  {
-    if(stop==1) break;
-    
-     // read status of reg 0x18
-     char reg18 = r_reg(i2c_adr, 0x18, 0);
-
-     // clear all interrupts
-    i2c_write_reg_data(i2c_adr,0x1C,0x07);
- 
-    // start measurement by setting MEASURE_EN
-    i2c_write_reg_data(i2c_adr,0x18,0x04 | reg18);
-    // wait till interrupt pin is pulled low
-    // and check if stop command was sent
-    time_out=0;
-    while(digitalRead(INT) == 1)
-    {
-      time_out++;
-      if (time_out > 100000)
-      {
-        Serial.println(F("Error: no end of measurement interrupt from Boyle !!!"));
-        return;
-      }
-    }
-    time_out=0;
-
-    //if (Serial.available() > 0) {
-    //  decode_received_command(0);
-    //}
-
-    // pause time is set by the SPS command
-    delay(pause_time);
-   
-    // read RS1 result and transmit it to PC
-    // read command is sending back data
-
-    //Wire.endTransmission();     // stop transmitting
-    Wire.beginTransmission(i2c_adr); // transmit to device address
-    Wire.write(0);               // sends start for block read
-    Wire.endTransmission();     // stop transmitting
-        
-    Wire.requestFrom(i2c_adr, 20);   // read 20 bytes
-    i=0;
-    while(Wire.available())    // slave may send less than requested
-    { 
-      received_string[i++]  = Wire.read();    // receive a byte as character
-    }
-
-    for (i=0;i<20;i++)
-    {
-      Serial.write(received_string[i]); // echo back data
-    }
-    Serial.println(F("*\r\n"));
-  }
-   
-}
 char Boyle::r_reg(char adr,char reg, bool transmitt_data_via_usb)
 {
   int c=0;
@@ -403,10 +331,10 @@ char Boyle::r_reg(char adr,char reg, bool transmitt_data_via_usb)
   while(Wire.available())    // slave may send less than requested
   { 
       c = Wire.read();    // receive a byte as character
-      //if(transmitt_data_via_usb==1) {
-      //  Serial.print(c);         // print the character
-      //  Serial.print(" ");         // print the character
-      //}
+      if(transmitt_data_via_usb==1) {
+        Serial.print(c);         // print the character before commented niels
+        Serial.print(" ");         // print the character before commented niels 
+      }
    }
 
    //if(transmitt_data_via_usb==1)
@@ -828,10 +756,10 @@ void  Boyle::autoscale(double external_rref)
                   // clear old interrupt
                   i2c_write_reg_data(i2c_adr,0x1C,0x02);
           
-                  }  else 
-                  {
+               }  else 
+               {
                     rref_ext[j] = 0; 
-                  }
+               }
         } 
         else 
         {
@@ -935,15 +863,15 @@ bool Boyle::SetVal(char *parameter, char *value)
     digitalWrite(3, 0);
     digitalWrite(8, 0);
     if(adr == 1) 
-    {
+    { 
       digitalWrite(3, 1);
       i2c_write_reg(75,reg);
     }
-    if(adr == 2){
+    if(adr == 2){ 
       digitalWrite(8, 1);
       i2c_write_reg(75,reg);
     }
-   if(adr == 3){
+   if(adr == 3){ 
       i2c_write_reg(73,reg);
     }
     if(adr == 4){
@@ -1277,6 +1205,85 @@ bool Boyle::SetVal(char *parameter, char *value)
     return true;
   }
   return false;
+}
+
+void Boyle::adc_st()
+{
+	char c[] = "";
+	int t;
+	long time_out = 0;
+  
+	// start "fake-selftimed-mode"
+	// timing will be done by Arduino waits
+	// it has to be set with the "SPS" command -> samples per second
+	// interrupt pin will be used to check for "measurement finished"
+
+	// enable interrupt
+	i2c_write_reg_data(i2c_adr, 0x1A, 0x02);
+
+	// clear old interrupt
+	i2c_write_reg_data(i2c_adr, 0x1C, 0x02);
+
+	stop = 0;
+ 
+	while (1)
+	{
+		if (stop == 1) break;
+    
+		// read status of reg 0x18
+		char reg18 = r_reg(i2c_adr, 0x18, 0);
+
+		// clear all interrupts
+	   i2c_write_reg_data(i2c_adr, 0x1C, 0x07);
+ 
+		// start measurement by setting MEASURE_EN
+		i2c_write_reg_data(i2c_adr, 0x18, 0x04 | reg18);  //niels
+		//i2c_write_reg_data(i2c_adr, 0x18, 0x04);
+
+		// wait till interrupt pin is pulled low
+		// and check if stop command was sentread_rref_settings
+		time_out = 0;
+		while (digitalRead(INT) == 1)
+		{
+			delay(1);  // add
+			time_out++;
+			if (time_out > 1000) // 1000 instead of 100000
+				{
+					Serial.println(F("Error: no end of measurement interrupt from Boyle !!!"));
+					return;
+				}
+		}
+		time_out = 0;
+
+		if (Serial.available() > 0) {
+			CommRx();
+		}
+
+		// pause time is set by the SPS command
+		delay(pause_time);
+   
+		// read RS1 result and transmit it to PC
+		// read command is sending back data
+
+		//Wire.endTransmission();     // stop transmitting
+		Wire.beginTransmission(i2c_adr);  // transmit to device address
+		Wire.write(0);                // sends start for block read
+		Wire.endTransmission();      // stop transmitting
+        
+		Wire.requestFrom(i2c_adr, 20);    // read 20 bytes
+		i = 0;
+		while (Wire.available())    // slave may send less than requested
+			{ 
+				received_string[i++]  = Wire.read();     // receive a byte as character
+			}
+
+		for (i = 0; i < 20; i++)
+		{
+			Serial.write(received_string[i]);  // echo back data
+		}
+		Serial.println(F("*\r\n"));
+	}
+   
 }
 float Boyle::convert_ASIC_temp_raw_data_to_celsius(float raw_data)
 {          

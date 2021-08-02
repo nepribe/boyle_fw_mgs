@@ -31,7 +31,7 @@ bool boyle_init = true;
 char sensors[100];
 char error_msg[200];
 Sensor_Config_s sensor_config_t;
-static bool sensors_start =true;
+static bool sensors_start = false;
 uint8_t sensors_data[100] = {0};
 
 SHTSensor sht;
@@ -239,7 +239,7 @@ bool SensorSetVal(char *sid, char *parameter, char *value)
 {
   if(!strcmp(sid, "boyle"))
   {
-    //Serial.print(sid);
+    //Serial.print(sid); 
     return boyle.SetVal(parameter, value);
   }
   return false;

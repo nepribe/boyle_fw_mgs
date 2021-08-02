@@ -1,0 +1,2 @@
+boyle_arduino_27_1_2021.c  --> \\MUCSDV534.infineon.com\RFS\Sens_Inno\03_Gas\01_Multigas\03_S-Project_System\02_ASIC\HerbertTransfer_20210107\Arduino_firmware
+Boyle 1.0 ASIC and FW Summary.docx  --> \\MUCSDV534.infineon.com\RFS\Sens_Inno\03_Gas\01_Multigas\03_S-Project_System\02_ASIC\HerbertTransfer_20210107\Doku

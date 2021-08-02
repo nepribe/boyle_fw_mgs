@@ -96,7 +96,7 @@ static uint8_t CommCommand(char *cmd)
   while(i < (NUM_OF_CMDS))
   {
     int8_t st= strcmp(cmd, cmnds[i]);
-    if(!st)
+	if(!st)
     {
       return i;
     }
@@ -129,6 +129,7 @@ static bool CommParse(char * msg)
       break;
     case ASCII_DATA:
       parameter  = strtok((char *)ptr_params, " \r\n");
+
       if(atoi(parameter))
       {
         SensorTxAsciiData(true);
@@ -142,13 +143,15 @@ static bool CommParse(char * msg)
       break;
     case SET:
     {
-      sid  = strtok((char *)ptr_params, " ");
+
+	  sid  = strtok((char *)ptr_params, " ");
       if(sid == NULL)
         return false;
       uint32_t len = strlen(sid);
       parameter  = strtok((char *)&ptr_params[len+1], " :=");
-      if(parameter == NULL)
-        return false;
+	  if (parameter == NULL) {
+		    return false;
+	  }
       //Serial.print(parameter);
       //Serial.print(" ");
     
@@ -157,16 +160,17 @@ static bool CommParse(char * msg)
       
       //if(value == NULL)
       //  return 0;
+
       if (SensorSetVal(sid, parameter, value) == true)
       {
-        Serial.println("ack");
+        
         delay(10);
         if(data_in_s_buffer == true)
         {
           data_in_s_buffer=false;
           Serial.print(s_buffer);
         }
-          
+	    Serial.println("ack");  
       }
       else
       {
@@ -181,6 +185,7 @@ static bool CommParse(char * msg)
         return false;
       
       parameter  = strtok((char *)&ptr_params[2], " :=");
+	  Serial.print(parameter);
       if(parameter == NULL)
         return false;
 
@@ -219,8 +224,10 @@ bool CommRx()
   static boolean  new_packet=false;
   if(Serial.available() > 0) {
     char rc;
+
     // read the incoming byte:
-     rc= Serial.read();
+    rc= Serial.read();
+
     if(rc == '$')
       new_packet = true;
     else if((rc== '\n') || (rc== '\r'))
